@@ -11,11 +11,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public List<Record> recordAllRound() {
-        return recordAllCars();
-    }
-
-    private List<Record> recordAllCars() {
+    List<Record> recordAll() {
         List<Record> records = new ArrayList<>();
 
         for (Car car : cars) {
@@ -25,12 +21,20 @@ public class Cars {
         return records;
     }
 
-    public void forwardAllByConditions(List<Integer> conditions) {
+    void forwardAllByConditions(List<Integer> conditions) {
         int sizeOfCars = cars.size();
 
         for (int index = 0; index < sizeOfCars; index++) {
-            Car currentCar = cars.get(index);
+            Car currentCar = getCarByIndex(index);
             currentCar.forwardByCondition(conditions.get(index));
         }
+    }
+
+    public Position getPositionByIndex(int index) {
+        return getCarByIndex(index).getPosition();
+    }
+
+    private Car getCarByIndex(int index) {
+        return cars.get(index);
     }
 }
