@@ -2,12 +2,14 @@ package racingcar.domain;
 
 public class Car {
 
+    public static final int START_POSITION = 0;
+
     private int position;
     private String name;
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = START_POSITION;
     }
 
     public void forward() {
