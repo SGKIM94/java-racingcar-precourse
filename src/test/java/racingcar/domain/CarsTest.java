@@ -5,32 +5,36 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CarsTest {
 
+    public static final String TEST_NAME = "kim";
+    public static final String TEST_SECOND_NAME = "park";
+
     private Cars cars;
 
     @BeforeEach
     void setUp() {
-        cars = new Cars(Arrays.asList(new Car("kim"), new Car("park")));
+        cars = new Cars(Arrays.asList(new Car(TEST_NAME), new Car(TEST_SECOND_NAME)));
     }
 
     @Test
     @DisplayName("자동차들 경주의 기록을 저장한다.")
     void recordAll() {
-        List<Record> records = cars.recordAll();
+        Records records = cars.recordAll();
 
         assertAll(
                 () -> assertThat(records.size()).isEqualTo(2),
-                () -> assertThat(records).containsExactlyInAnyOrder(
-                        new Record(new CarName("kim"), new Position()),
-                        new Record(new CarName("park"), new Position())
-                )
+                () -> assertThat(records.get(0)).isEqualTo(newRecordByName(TEST_NAME)),
+                () -> assertThat(records.get(1)).isEqualTo(newRecordByName(TEST_SECOND_NAME))
         );
+    }
+
+    private Record newRecordByName(String name) {
+        return new Record(new CarName(name), new Position());
     }
 
     @Test

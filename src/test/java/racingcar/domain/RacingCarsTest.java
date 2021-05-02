@@ -17,9 +17,9 @@ public class RacingCarsTest {
         List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
         RacingCars racingCars = new RacingCars(cars, Arrays.asList(4, 5, 9));
 
-        List<List<Record>> allRoundRecords = racingCars.racing(3);
+        List<Records> allRoundRecords = racingCars.racing(3);
 
-        List<Record> firstRecords = allRoundRecords.get(0);
+        Records firstRecords = allRoundRecords.get(0);
 
         assertAll(
                 () -> assertThat(allRoundRecords.size()).isEqualTo(3),

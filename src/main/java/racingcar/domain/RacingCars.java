@@ -13,12 +13,12 @@ public class RacingCars {
         this.conditions = new Conditions(conditions);
     }
 
-    public List<List<Record>> racing(int rounds) {
+    public List<Records> racing(int rounds) {
         return racingAllRoundAndRecord(rounds);
     }
 
-    private List<List<Record>> racingAllRoundAndRecord(int rounds) {
-        List<List<Record>> allRoundRecords = new ArrayList<>();
+    private List<Records> racingAllRoundAndRecord(int rounds) {
+        List<Records> allRoundRecords = new ArrayList<>();
 
         for (int round = 0; round < rounds; round++) {
             cars.forwardAllByConditions(conditions);

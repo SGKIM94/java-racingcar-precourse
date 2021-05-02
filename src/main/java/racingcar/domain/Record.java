@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Record {
 
-    private CarName name;
-    private Position position;
+    private final CarName name;
+    private final Position position;
 
     public Record(CarName name, Position position) {
         this.name = name;
