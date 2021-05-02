@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RacingGameTest {
+public class CarTest {
 
     @Test
     @DisplayName("자동차를 전진시키면 위치가 한칸 증가한다")
