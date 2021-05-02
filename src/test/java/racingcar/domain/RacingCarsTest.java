@@ -15,14 +15,18 @@ public class RacingCarsTest {
     @DisplayName("입력받은 횟수만큼 경주를 진행시킨다.")
     void racing() {
         List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
+        RacingCars racingCars = new RacingCars(cars, Arrays.asList(4, 5, 9));
 
-        List<Record> record = RacingCars.racing(cars, 3, Arrays.asList(4, 5, 9));
+        List<List<Record>> allRoundRecords = racingCars.racing(3);
+
+        List<Record> firstRecords = allRoundRecords.get(0);
 
         assertAll(
-                () -> assertThat(record.size()).isEqualTo(3),
-                () -> assertThat(record.get(0)).isNotNull(),
-                () -> assertThat(record.get(1)).isNotNull(),
-                () -> assertThat(record.get(2)).isNotNull()
+                () -> assertThat(allRoundRecords.size()).isEqualTo(3),
+                () -> assertThat(firstRecords.size()).isEqualTo(3),
+                () -> assertThat(firstRecords.get(0)).isNotNull(),
+                () -> assertThat(firstRecords.get(1)).isNotNull(),
+                () -> assertThat(firstRecords.get(2)).isNotNull()
         );
     }
 }
