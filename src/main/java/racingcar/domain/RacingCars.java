@@ -5,11 +5,11 @@ import java.util.List;
 public class RacingCars {
 
     private final Cars cars;
-    private final Conditions conditions;
+    private final ConditionGenerator conditions;
 
-    public RacingCars(List<Car> cars, List<Integer> conditions) {
+    public RacingCars(List<Car> cars, ConditionGenerator conditions) {
         this.cars = new Cars(cars);
-        this.conditions = new Conditions(conditions);
+        this.conditions = conditions;
     }
 
     public OverallRecords racing(int rounds) {

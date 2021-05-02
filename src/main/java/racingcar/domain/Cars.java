@@ -20,12 +20,12 @@ public class Cars {
         return records;
     }
 
-    void forwardAllByConditions(Conditions conditions) {
+    void forwardAllByConditions(ConditionGenerator condition) {
         int sizeOfCars = cars.size();
 
         for (int index = 0; index < sizeOfCars; index++) {
             Car currentCar = getCarByIndex(index);
-            currentCar.forwardByCondition(conditions.get(index));
+            currentCar.forwardByCondition(condition.generate());
         }
     }
 
