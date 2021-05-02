@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
@@ -13,16 +12,16 @@ public class RacingCars {
         this.conditions = new Conditions(conditions);
     }
 
-    public List<Records> racing(int rounds) {
+    public OverallRecords racing(int rounds) {
         return racingAllRoundAndRecord(rounds);
     }
 
-    private List<Records> racingAllRoundAndRecord(int rounds) {
-        List<Records> allRoundRecords = new ArrayList<>();
+    private OverallRecords racingAllRoundAndRecord(int rounds) {
+        OverallRecords allRoundRecords = new OverallRecords();
 
         for (int round = 0; round < rounds; round++) {
             cars.forwardAllByConditions(conditions);
-            allRoundRecords.add(cars.recordAll());
+            allRoundRecords = allRoundRecords.add(cars.recordAll());
         }
 
         return allRoundRecords;

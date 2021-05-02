@@ -17,7 +17,7 @@ public class RacingCarsTest {
         List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
         RacingCars racingCars = new RacingCars(cars, Arrays.asList(4, 5, 9));
 
-        List<Records> allRoundRecords = racingCars.racing(3);
+        OverallRecords allRoundRecords = racingCars.racing(3);
 
         Records firstRecords = allRoundRecords.get(0);
 
