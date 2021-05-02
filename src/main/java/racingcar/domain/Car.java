@@ -10,6 +10,10 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름의 길이가 너무 깁니다. : " + name.length());
+        }
+
         this.position = new Position(START_POSITION);
     }
 
@@ -19,7 +23,7 @@ public class Car {
         }
     }
 
-    public int getPosition() {
-        return position.getPosition();
+    public Position getPosition() {
+        return position;
     }
 }
