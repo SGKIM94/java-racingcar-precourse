@@ -22,7 +22,7 @@ public class RacingCars {
 
         for (int round = 0; round < rounds; round++) {
             cars.forwardAllByConditions(conditions);
-            allRoundRecords.add(cars.recordAllRound());
+            allRoundRecords.add(cars.recordAll());
         }
 
         return allRoundRecords;
