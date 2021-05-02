@@ -31,11 +31,21 @@ public class CarTest {
         assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"longggName", "fiven"})
     @DisplayName("입력받은 이름이 5자이상인 경우 예외 처리한다.")
-    void validateNameLength() {
+    void notValidateNameLength(String wrongName) {
         assertThatIllegalArgumentException().isThrownBy(
-                () -> new Car("longggName")
-        );
+                () -> new Car(wrongName)
+        ).withMessageContaining("이름의 길이가 너무 깁니다.");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"k", "ki", "kim", "four"})
+    @DisplayName("이름이 5글자이하인 경우 예외가 발생하지 않는다")
+    void validateNameLength(String correctName) {
+        Car car = new Car(correctName);
+
+        assertThat(car.getName()).isEqualTo(correctName);
     }
 }
