@@ -19,4 +19,10 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public void forwardByCondition(int i) {
+        if (i >= 4) {
+            forward();
+        }
+    }
 }
