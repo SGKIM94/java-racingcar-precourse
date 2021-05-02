@@ -16,6 +16,17 @@ public class CarTest {
 
         car.forwardByCondition(condition);
 
+
         assertThat(car.getPosition()).isEqualTo(1);
+    }
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3})
+    @DisplayName("3 이하의 값이면 멈춘다.")
+    void nowForwardCondition(int condition) {
+        Car car = new Car("kim");
+
+        car.forwardByCondition(condition);
+
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }
