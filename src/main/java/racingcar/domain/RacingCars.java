@@ -6,11 +6,11 @@ import java.util.List;
 public class RacingCars {
 
     private final Cars cars;
-    private final List<Integer> conditions;
+    private final Conditions conditions;
 
     public RacingCars(List<Car> cars, List<Integer> conditions) {
         this.cars = new Cars(cars);
-        this.conditions = conditions;
+        this.conditions = new Conditions(conditions);
     }
 
     public List<List<Record>> racing(int rounds) {

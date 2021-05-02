@@ -36,7 +36,7 @@ public class CarsTest {
     @Test
     @DisplayName("특정 조건에 따라 모든 자동차를 전진시킨다.")
     void forwardAllByConditions() {
-        cars.forwardAllByConditions(Arrays.asList(3, 9));
+        cars.forwardAllByConditions(new Conditions(Arrays.asList(3, 9)));
 
         assertAll(
                 () -> assertThat(cars.getPositionByIndex(0)).isEqualTo(new Position(0)),

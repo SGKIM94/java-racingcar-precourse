@@ -21,7 +21,7 @@ public class Cars {
         return records;
     }
 
-    void forwardAllByConditions(List<Integer> conditions) {
+    void forwardAllByConditions(Conditions conditions) {
         int sizeOfCars = cars.size();
 
         for (int index = 0; index < sizeOfCars; index++) {

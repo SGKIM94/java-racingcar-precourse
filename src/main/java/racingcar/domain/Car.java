@@ -4,8 +4,8 @@ public class Car {
 
     public static final int MOVABLE_CONDITION = 4;
 
-    private Position position;
-    private CarName name;
+    private final Position position;
+    private final CarName name;
 
     public Car(String name) {
         this.name = new CarName(name);
