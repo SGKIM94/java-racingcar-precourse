@@ -2,7 +2,6 @@ package racingcar.domain;
 
 public class Car {
 
-    public static final int START_POSITION = 0;
     public static final int MOVABLE_CONDITION = 4;
 
     private Position position;
@@ -10,7 +9,7 @@ public class Car {
 
     public Car(String name) {
         this.name = new CarName(name);
-        this.position = new Position(START_POSITION);
+        this.position = new Position();
     }
 
     public void forwardByCondition(int condition) {
