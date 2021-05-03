@@ -12,6 +12,22 @@ public class Record {
         this.position = position;
     }
 
+    public int retrieveCarPositionValue() {
+        return position.getPosition();
+    }
+
+    public String retrieveCarNameValue() {
+        return name.getName();
+    }
+
+    public CarName getName() {
+        return name;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
