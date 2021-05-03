@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -46,5 +47,13 @@ public class CarsTest {
                 () -> assertThat(cars.getPositionByIndex(0)).isEqualTo(new Position(0)),
                 () -> assertThat(cars.getPositionByIndex(1)).isEqualTo(new Position(1))
         );
+    }
+
+    @Test
+    @DisplayName("자동차 경주 후 누가 우승했는지를 알려준다.")
+    void findWinners() {
+        List<CarName> winners = cars.findWinners();
+
+        assertThat(winners.size()).isGreaterThan(0);
     }
 }
