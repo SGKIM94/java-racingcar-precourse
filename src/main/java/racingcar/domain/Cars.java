@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Cars {
 
+    public static final int START_INDEX = 0;
+
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -26,7 +28,7 @@ public class Cars {
     void forwardAllByConditions(ConditionGenerator condition) {
         int sizeOfCars = cars.size();
 
-        for (int index = 0; index < sizeOfCars; index++) {
+        for (int index = START_INDEX; index < sizeOfCars; index++) {
             Car currentCar = getCarByIndex(index);
             currentCar.forwardByCondition(condition.generate());
         }
@@ -41,21 +43,37 @@ public class Cars {
     }
 
     public List<CarName> findWinners() {
+        List<Position> positions = addCarsPosition();
+
+        Position maxPosition = Collections.max(positions, comparePosition());
+
+        return addMaxPositionCarNames(maxPosition);
+    }
+
+    private List<Position> addCarsPosition() {
         List<Position> positions = new ArrayList<>();
+
         for (Car car : cars) {
             positions.add(car.getPosition());
         }
 
-        Position maxPosition = Collections.max(positions, comparePosition());
+        return positions;
+    }
 
+    private List<CarName> addMaxPositionCarNames(Position maxPosition) {
         List<CarName> winners = new ArrayList<>();
+
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
+            addMaxPositionCarName(maxPosition, winners, car);
         }
 
         return winners;
+    }
+
+    private void addMaxPositionCarName(Position maxPosition, List<CarName> winners, Car car) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car.getName());
+        }
     }
 
     private Comparator<Position> comparePosition() {
