@@ -14,19 +14,18 @@ public class RacingCarsTest {
     @Test
     @DisplayName("입력받은 횟수만큼 경주를 진행시킨다.")
     void racing() {
-        List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
-        RacingCars racingCars = new RacingCars(new Cars(cars), new MockConditionGenerator(Arrays.asList(4, 5, 9)));
+        List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"));
+        RacingCars racingCars = new RacingCars(new Cars(cars), new MockConditionGenerator(Arrays.asList(4, 5, 9, 3)));
 
-        OverallRecords allRoundRecords = racingCars.racing(new Round(3));
+        OverallRecords allRoundRecords = racingCars.racing(new Round(2));
 
         Records firstRecords = allRoundRecords.get(0);
 
         assertAll(
-                () -> assertThat(allRoundRecords.size()).isEqualTo(3),
-                () -> assertThat(firstRecords.size()).isEqualTo(3),
+                () -> assertThat(allRoundRecords.size()).isEqualTo(2),
+                () -> assertThat(firstRecords.size()).isEqualTo(2),
                 () -> assertThat(firstRecords.get(0)).isNotNull(),
-                () -> assertThat(firstRecords.get(1)).isNotNull(),
-                () -> assertThat(firstRecords.get(2)).isNotNull()
+                () -> assertThat(firstRecords.get(1)).isNotNull()
         );
     }
 }
