@@ -29,8 +29,8 @@ public class Application {
     }
 
     private static void findWinnersAndPrint(Cars createdCars) {
-        List<CarName> winners = createdCars.findWinners();
-        InputView.printWinners(winners);
+        Winners winners = createdCars.findWinners();
+        InputView.printWinners(winners.getWinners());
         InputView.printEndingToWinners();
     }
 

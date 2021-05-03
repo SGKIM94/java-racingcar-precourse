@@ -42,7 +42,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    public List<CarName> findWinners() {
+    public Winners findWinners() {
         List<Position> positions = addCarsPosition();
 
         Position maxPosition = Collections.max(positions, comparePosition());
@@ -60,14 +60,14 @@ public class Cars {
         return positions;
     }
 
-    private List<CarName> addMaxPositionCarNames(Position maxPosition) {
+    private Winners addMaxPositionCarNames(Position maxPosition) {
         List<CarName> winners = new ArrayList<>();
 
         for (Car car : cars) {
             addMaxPositionCarName(maxPosition, winners, car);
         }
 
-        return winners;
+        return new Winners(winners);
     }
 
     private void addMaxPositionCarName(Position maxPosition, List<CarName> winners, Car car) {
