@@ -19,7 +19,7 @@ public class Cars {
         Records records = new Records();
 
         for (Car car : cars) {
-            records = records.add(new Record(car.getName(), car.getPosition()));
+            records = records.add(new Record(car.getName(), new Position(car.retrievePositionValue())));
         }
 
         return records;
