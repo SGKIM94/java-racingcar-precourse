@@ -20,14 +20,6 @@ public class Record {
         return name.getName();
     }
 
-    public CarName getName() {
-        return name;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

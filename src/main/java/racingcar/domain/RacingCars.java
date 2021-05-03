@@ -3,6 +3,7 @@ package racingcar.domain;
 public class RacingCars {
 
     public static final int START_ROUND = 0;
+
     private final Cars cars;
     private final ConditionGenerator conditions;
 

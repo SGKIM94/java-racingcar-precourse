@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Application {
 
-
     public static final String DELIMITER_CAR_NAME = ",";
 
     public static void main(String[] args) {
