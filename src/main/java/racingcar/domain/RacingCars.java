@@ -12,14 +12,14 @@ public class RacingCars {
         this.conditions = conditions;
     }
 
-    public OverallRecords racing(int rounds) {
+    public OverallRecords racing(Round rounds) {
         return racingAllRoundAndRecord(rounds);
     }
 
-    private OverallRecords racingAllRoundAndRecord(int rounds) {
+    private OverallRecords racingAllRoundAndRecord(Round rounds) {
         OverallRecords allRoundRecords = new OverallRecords();
 
-        for (int round = START_ROUND; round < rounds; round++) {
+        for (int round = START_ROUND; round < rounds.getRound(); round++) {
             cars.forwardAllByConditions(conditions);
             allRoundRecords = allRoundRecords.add(cars.recordAll());
         }

@@ -17,7 +17,7 @@ public class RacingCarsTest {
         List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
         RacingCars racingCars = new RacingCars(new Cars(cars), new MockConditionGenerator(Arrays.asList(4, 5, 9)));
 
-        OverallRecords allRoundRecords = racingCars.racing(3);
+        OverallRecords allRoundRecords = racingCars.racing(new Round(3));
 
         Records firstRecords = allRoundRecords.get(0);
 

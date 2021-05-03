@@ -52,8 +52,8 @@ public class CarsTest {
     @Test
     @DisplayName("자동차 경주 후 누가 우승했는지를 알려준다.")
     void findWinners() {
-        List<CarName> winners = cars.findWinners();
+        Winners winners = cars.findWinners();
 
-        assertThat(winners.size()).isGreaterThan(0);
+        assertThat(winners).isNotNull();
     }
 }

@@ -23,7 +23,7 @@ public class Application {
 
         InputView.printToIntroRacingResult();
 
-        raceAndPrintResult(round, createdCars);
+        raceAndPrintResult(new Round(round), createdCars);
 
         findWinnersAndPrint(createdCars);
     }
@@ -34,7 +34,7 @@ public class Application {
         InputView.printEndingToWinners();
     }
 
-    private static void raceAndPrintResult(int round, Cars createdCars) {
+    private static void raceAndPrintResult(Round round, Cars createdCars) {
         RacingCars racingCars = new RacingCars(createdCars, new RandomConditionGenerator());
 
         OverallRecords racingResult = racingCars.racing(round);
