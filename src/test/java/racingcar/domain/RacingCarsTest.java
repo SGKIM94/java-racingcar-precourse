@@ -15,7 +15,7 @@ public class RacingCarsTest {
     @DisplayName("입력받은 횟수만큼 경주를 진행시킨다.")
     void racing() {
         List<Car> cars = Arrays.asList(new Car("kim"), new Car("park"), new Car("choi"));
-        RacingCars racingCars = new RacingCars(cars, new MockConditionGenerator(Arrays.asList(4, 5, 9)));
+        RacingCars racingCars = new RacingCars(new Cars(cars), new MockConditionGenerator(Arrays.asList(4, 5, 9)));
 
         OverallRecords allRoundRecords = racingCars.racing(3);
 

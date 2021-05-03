@@ -27,4 +27,8 @@ public class Records {
     public int size() {
         return records.size();
     }
+
+    public List<Record> getRecords() {
+        return records;
+    }
 }

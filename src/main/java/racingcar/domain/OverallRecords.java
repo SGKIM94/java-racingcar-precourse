@@ -27,4 +27,8 @@ public class OverallRecords {
     public int size() {
         return overallRecords.size();
     }
+
+    public List<Records> getOverallRecords() {
+        return overallRecords;
+    }
 }

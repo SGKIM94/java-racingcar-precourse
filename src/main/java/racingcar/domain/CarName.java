@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class CarName {
 
+
     public static final int NAME_MAX_LENGTH = 5;
 
     private String name;
@@ -19,6 +20,10 @@ public class CarName {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,9 +35,5 @@ public class CarName {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    public String getName() {
-        return name;
     }
 }

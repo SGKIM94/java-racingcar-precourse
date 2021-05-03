@@ -1,14 +1,13 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class RacingCars {
 
+    public static final int START_ROUND = 0;
     private final Cars cars;
     private final ConditionGenerator conditions;
 
-    public RacingCars(List<Car> cars, ConditionGenerator conditions) {
-        this.cars = new Cars(cars);
+    public RacingCars(Cars cars, ConditionGenerator conditions) {
+        this.cars = cars;
         this.conditions = conditions;
     }
 
@@ -19,7 +18,7 @@ public class RacingCars {
     private OverallRecords racingAllRoundAndRecord(int rounds) {
         OverallRecords allRoundRecords = new OverallRecords();
 
-        for (int round = 0; round < rounds; round++) {
+        for (int round = START_ROUND; round < rounds; round++) {
             cars.forwardAllByConditions(conditions);
             allRoundRecords = allRoundRecords.add(cars.recordAll());
         }
